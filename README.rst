@@ -2,7 +2,7 @@ Octograph
 ---------
 
 Python tool for downloading energy consumption data from the
-`Octopus Energy API`_ and loading it into `InfluxDB`_.
+`Octopus Energy API`_ and loading it into `InfluxDB`_ running on Raspberry PI.
 
 If you think you'd find this useful, but haven't switched to Octopus yet, then
 you can follow my referrer link `<https://share.octopus.energy/vivid-emu-468>`_
@@ -28,14 +28,14 @@ Grafana.
 Installation
 ============
 
-Tested on macOS with Docker for Mac and Python 3.6. A Python virtualenv is
+Tested on Raspberry Pi Type B and Python 3.6. A Python virtualenv is
 recommended.
 
 Install the Python requirements with ``pip``
 
 .. code:: bash
 
-    pip install -r app/requirements.txt
+    pip3 install -r app/requirements.txt
 
 
 Usage
@@ -48,7 +48,7 @@ can be passed as an argument.
 
 .. code:: bash
 
-    python app/octopus_to_influxdb.py --help
+    python3 app/octopus_to_influxdb.py --help
 
 By default, energy data for the previous day will be collected. Optional from
 and to ranges may be specified to retrieve larger datasets. It is anticipated
@@ -56,13 +56,12 @@ that the script will be run daily by a cron job.
 
 .. code:: bash
 
-    docker-compose up -d  # start InfluxDB and Grafana in Docker
-    python app/octopus_to_influxdb.py --from-date=2018-10-20
+    python3 app/octopus_to_influxdb.py --from-date=2018-10-20
     open http://localhost:3000
 
 The default login credentials for Grafana are admin/admin, and you will be
 prompted to set a new password on first login. You should then proceed to add
-InfluxDB as a datasource with URL ``http://influxdb:8086`` and database
+InfluxDB as a datasource with URL ``http://localhost:8086`` and database
 ``energy`` if using the Docker version provided. The dashboard provided can
 then be imported to review the data.
 
