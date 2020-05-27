@@ -138,6 +138,30 @@ def cmd(config_file, from_date, to_date):
     api_key = config.get('octopus', 'api_key')
     if not api_key:
         raise click.ClickException('No Octopus API key set')
+        
+    get_electricity_data = config.getboolean('settings', 'get_electricity_data')
+    if get_electricity_data:
+        click.echo(
+            f'Will get electricity data',
+            nl=True
+        )
+    else: 
+        click.echo(
+            f'Will not get electricity data',
+            nl=True
+        )    
+    
+    get_gas_data = config.getboolean('settings', 'get_gas_data')
+    if get_gas_data:
+        click.echo(
+            f'Will get gas data',
+            nl=True
+        )
+    else: 
+        click.echo(
+            f'Will not get gas data',
+            nl=True
+        )
 
     e_mpan = config.get('electricity', 'mpan', fallback=None)
     e_serial = config.get('electricity', 'serial_number', fallback=None)
@@ -190,33 +214,35 @@ def cmd(config_file, from_date, to_date):
     from_iso = maya.when(from_date, timezone=timezone).iso8601()
     to_iso = maya.when(to_date, timezone=timezone).iso8601()
 
-    click.echo(
-        f'Retrieving electricity data for {from_iso} until {to_iso}...',
-        nl=False
-    )
-    e_consumption = retrieve_paginated_data(
-        api_key, e_url, from_iso, to_iso
-    )
-    click.echo(f' {len(e_consumption)} readings.')
-    click.echo(
-        f'Retrieving Agile rates for {from_iso} until {to_iso}...',
-        nl=False
-    )
-    rate_data['electricity']['agile_unit_rates'] = retrieve_paginated_data(
-        api_key, agile_url, from_iso, to_iso
-    )
-    click.echo(f' {len(rate_data["electricity"]["agile_unit_rates"])} rates.')
-    store_series(influx, 'electricity', e_consumption, rate_data['electricity'])
-
-    click.echo(
-        f'Retrieving gas data for {from_iso} until {to_iso}...',
-        nl=False
-    )
-    g_consumption = retrieve_paginated_data(
-        api_key, g_url, from_iso, to_iso
-    )
-    click.echo(f' {len(g_consumption)} readings.')
-    store_series(influx, 'gas', g_consumption, rate_data['gas'])
+    if get_electricity_data:
+        click.echo(
+            f'Retrieving electricity data for {from_iso} until {to_iso}...',
+            nl=False
+        )
+        e_consumption = retrieve_paginated_data(
+            api_key, e_url, from_iso, to_iso
+        )
+        click.echo(f' {len(e_consumption)} readings.')
+        click.echo(
+            f'Retrieving Agile rates for {from_iso} until {to_iso}...',
+            nl=False
+        )
+        rate_data['electricity']['agile_unit_rates'] = retrieve_paginated_data(
+            api_key, agile_url, from_iso, to_iso
+        )
+        click.echo(f' {len(rate_data["electricity"]["agile_unit_rates"])} rates.')
+        store_series(influx, 'electricity', e_consumption, rate_data['electricity'])
+    
+    if get_gas_data:
+        click.echo(
+            f'Retrieving gas data for {from_iso} until {to_iso}...',
+            nl=False
+        )
+        g_consumption = retrieve_paginated_data(
+            api_key, g_url, from_iso, to_iso
+        )
+        click.echo(f' {len(g_consumption)} readings.')
+        store_series(influx, 'gas', g_consumption, rate_data['gas'])
 
 
 if __name__ == '__main__':
