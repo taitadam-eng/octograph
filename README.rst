@@ -60,6 +60,18 @@ Enable Grafana at startup and start Grafana:
    sudo systemctl enable grafana-server
    sudo systemctl start grafana-server
    
+Install InfluxDB:
+
+.. code:: bash
+
+   wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+   echo "deb https://repos.influxdata.com/debian buster stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+   sudo apt update
+   sudo apt install influxdb
+   sudo systemctl unmask influxdb
+   sudo systemctl enable influxdb
+   sudo systemctl start influxdb
+
 Download Octograph:
 
 .. code:: bash
