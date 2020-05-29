@@ -28,10 +28,9 @@ Grafana.
 Installation
 ============
 
-Tested on Raspberry Pi Type B and Python 3.6. A Python virtualenv is
-recommended.
+Tested on Raspberry Pi Type B and Python 3.6.
 
-Install the Python requirements with ``pip``
+Install the Python requirements with ``pip3``
 
 .. code:: bash
 
