@@ -35,7 +35,7 @@ Install python pip using apt:
    
 Download Octograph:
 
-  .. code:: bash
+.. code:: bash
   
   cd /home/pi
   wget https://github.com/taitadam-eng/octograph/archive/master.zip
