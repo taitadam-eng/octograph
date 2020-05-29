@@ -95,12 +95,23 @@ Fix Pendulum and TZLocal compatability issue:
    sudo pip3 uninstall tzlocal
    sudo pip3 install tzlocal==1.5.1
    
-Copy the example config and enter required 
+Copy the example config and enter required: 
 
 .. code:: bash
    
    cp octograph-master/example-octograph.ini octograph-master/octograph.ini
    nano octograph-master/octograph.ini
+   
+Create the required InfluxDB database and user (ensure you match the username and password in octograph.ini):
+
+.. code:: bash
+
+   influx
+   
+.. code:: sql
+
+   CREATE USER octograph WITH PASSWORD 'password' WITH ALL PRIVILEGES
+   CREATE DATABASE energy
 
 Usage
 =====
