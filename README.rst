@@ -51,6 +51,13 @@ Raspberry Pi 2 and later
    wget https://dl.grafana.com/oss/release/grafana_6.6.1_armhf.deb
    sudo dpkg -i grafana_6.6.1_armhf.deb
    
+Enable Grafana at startup and start Grafana:
+
+.. code:: bash
+   
+   sudo systemctl enable grafana-server
+   sudo systemctl start grafana-server
+   
 Download Octograph:
 
 .. code:: bash
