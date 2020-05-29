@@ -90,7 +90,7 @@ Install the Python requirements with ``pip3``
     
 Fix Pendulum and TZLocal compatability issue:
 
-.. cOde:: bash
+.. code:: bash
 
    sudo pip3 uninstall tzlocal
    sudo pip3 install tzlocal==1.5.1
