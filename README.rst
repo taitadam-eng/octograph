@@ -131,7 +131,8 @@ that the script will be run daily by a cron job.
 
 .. code:: bash
 
-    python3 octograph-master/app/octopus_to_influxdb.py --from-date=2020-05-01
+    cd /home/pi/octograph-master
+    python3 app/octopus_to_influxdb.py --from-date=2020-05-01
     open http://<RASPBERRY PI IP ADDRESS>:3000
 
 The default login credentials for Grafana are admin/admin, and you will be
