@@ -27,11 +27,17 @@ Installation
 
 Tested on Raspberry Pi Type B and Python 3.6 running on Raspberry Pi OS 32bit.
 
-Install python using apt:
+Install python pip using apt:
 
 .. code:: bash
 
-   sudo apt-get install python3
+   sudo apt-get install python3-pip
+   
+Download Octograph:
+
+  .. code:: bash
+  
+  
 
 Install the Python requirements with ``pip3``
 
