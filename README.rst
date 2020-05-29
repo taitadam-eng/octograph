@@ -79,13 +79,14 @@ Download Octograph:
   cd /home/pi
   wget https://github.com/taitadam-eng/octograph/archive/master.zip
   unzip master.zip
+  rm master.zip
   
 
 Install the Python requirements with ``pip3``
 
 .. code:: bash
 
-    pip3 install -r app/requirements.txt
+    pip3 install -r octograph-master/app/requirements.txt
 
 
 Usage
