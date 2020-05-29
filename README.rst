@@ -28,6 +28,7 @@ Installation
 Tested on Raspberry Pi Type B and Python 3.6 running on Raspberry Pi OS 32bit.
 
 Install python pip using apt:
+
 .. code:: bash
 
    sudo apt-get install python3-pip
@@ -51,6 +52,7 @@ Raspberry Pi 2 and later
    sudo dpkg -i grafana_6.6.1_armhf.deb
    
 Download Octograph:
+
 .. code:: bash
   
   cd /home/pi
