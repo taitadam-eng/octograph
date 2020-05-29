@@ -19,16 +19,19 @@ daylight savings time.
 
 Included is an example `Grafana`_ dashboard to visualise the captured data.
 
-An example Docker Compose file is included for easily running InfluxDB and
-Grafana.
-
 .. image:: grafana-dashboard.png
    :width: 800
 
 Installation
 ============
 
-Tested on Raspberry Pi Type B and Python 3.6.
+Tested on Raspberry Pi Type B and Python 3.6 running on Raspberry Pi OS 32bit.
+
+Install python using apt:
+
+.. code:: bash
+
+   sudo apt-get install python3
 
 Install the Python requirements with ``pip3``
 
