@@ -87,6 +87,13 @@ Install the Python requirements with ``pip3``
 .. code:: bash
 
     pip3 install -r octograph-master/app/requirements.txt
+    
+Fix Pendulum and TZLocal compatability issue:
+
+.. cde:: bash
+
+   sudo pip3 uninstall tzlocal
+   sudo pip3 install tzlocal==1.5.1  
 
 
 Usage
@@ -107,8 +114,8 @@ that the script will be run daily by a cron job.
 
 .. code:: bash
 
-    python3 app/octopus_to_influxdb.py --from-date=2018-10-20
-    open http://localhost:3000
+    python3 octograph-master/app/octopus_to_influxdb.py --from-date=2020-05-01
+    open http://<RASPBERRY PI IP ADDRESS>:3000
 
 The default login credentials for Grafana are admin/admin, and you will be
 prompted to set a new password on first login. You should then proceed to add
