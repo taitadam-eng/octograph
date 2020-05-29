@@ -94,6 +94,13 @@ Fix Pendulum and TZLocal compatability issue:
 
    sudo pip3 uninstall tzlocal
    sudo pip3 install tzlocal==1.5.1
+   
+Copy the example config and enter required 
+
+.. code:: bash
+   
+   cp octograph-master/example-octograph.ini octograph-master/octograph.ini
+   nano octograph-master/octograph.ini
 
 Usage
 =====
@@ -105,7 +112,7 @@ can be passed as an argument.
 
 .. code:: bash
 
-    python3 app/octopus_to_influxdb.py --help
+    python3 octograph-master/app/octopus_to_influxdb.py --help
 
 By default, energy data for the previous day will be collected. Optional from
 and to ranges may be specified to retrieve larger datasets. It is anticipated
