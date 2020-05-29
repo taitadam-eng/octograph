@@ -41,6 +41,7 @@ Raspberry Pi 1 & Raspberry Pi Zero
 
    cd /tmp
    wget https://dl.grafana.com/oss/release/grafana-rpi_6.6.1_armhf.deb
+   apt --fix-broken install
    sudo dpkg -i grafana-rpi_6.6.1_armhf.deb
 
 Raspberry Pi 2 and later
@@ -49,6 +50,7 @@ Raspberry Pi 2 and later
 
    cd /tmp
    wget https://dl.grafana.com/oss/release/grafana_6.6.1_armhf.deb
+   apt --fix-broken install
    sudo dpkg -i grafana_6.6.1_armhf.deb
    
 Enable Grafana at startup and start Grafana:
