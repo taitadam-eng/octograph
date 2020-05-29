@@ -33,7 +33,9 @@ Install python pip using apt:
    sudo apt-get install python3-pip
    
 Install Grafana:
+
 Raspberry Pi 1 & Raspberry Pi Zero
+
 .. code:: bash
 
 cd /tmp
@@ -41,6 +43,7 @@ wget https://dl.grafana.com/oss/release/grafana-rpi_6.6.1_armhf.deb
 sudo dpkg -i grafana-rpi_6.6.1_armhf.deb
 
 Raspberry Pi 2 and later
+
 .. code:: bash
 
 cd /tmp
