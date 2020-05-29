@@ -37,6 +37,9 @@ Download Octograph:
 
   .. code:: bash
   
+  cd /home/pi
+  wget https://github.com/taitadam-eng/octograph/archive/master.zip
+  unzip master.zip
   
 
 Install the Python requirements with ``pip3``
