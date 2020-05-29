@@ -93,8 +93,7 @@ Fix Pendulum and TZLocal compatability issue:
 .. cde:: bash
 
    sudo pip3 uninstall tzlocal
-   sudo pip3 install tzlocal==1.5.1  
-
+   sudo pip3 install tzlocal==1.5.1
 
 Usage
 =====
